@@ -1,5 +1,5 @@
 .data {
-    display: none;
+    display: block;
 }
 
 .g-signin2 {
