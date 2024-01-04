@@ -41,7 +41,6 @@ body {
     height: 32rem;
 }
   
-  
   /* MARKETING CONTENT
   -------------------------------------------------- */
   
@@ -127,6 +126,32 @@ body {
     width: 100%;
 }
 
+#message, #matchAlert, #dupAlert {
+    display: none;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+    color: green;
+}
+
+.valid:before {
+    position: relative;
+    left: -35px;
+    content: "✔";
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+    color: red;
+}
+
+.invalid:before {
+    position: relative;
+    left: -35px;
+    content: "✖";
+}
+
   /* CUSTOMIZE THE HEADER
   -------------------------------------------------- */
 
@@ -144,4 +169,21 @@ body {
     border: none;
     font-weight: normal;
     font-style: normal;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+#dropdownMenuButtonLight {
+    display: none;
+}
+
+.card-container {
+  float: left;
+  width: 50%;
+  padding: 0 10px;
+  
 }
