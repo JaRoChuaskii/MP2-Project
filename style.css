@@ -155,35 +155,30 @@ body {
   /* CUSTOMIZE THE HEADER
   -------------------------------------------------- */
 
-  .navbar-brand {
-    font-family: 'Cedarville Cursive', cursive;
-    font-size: xx-large;
-}
-
-  .navbar {
-    background-color: peru;
-}
-
-  .button {
-    background: none;
-    border: none;
-    font-weight: normal;
-    font-style: normal;
-}
-
-.carousel-item img {
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-}
-
 #dropdownMenuButtonLight {
     display: none;
 }
 
+.logo, .navbar-brand {
+    width: 50px;
+}
+
 .card-container {
-  float: left;
-  width: 50%;
-  padding: 0 10px;
-  
+    float: left;
+    width: 50%;
+    padding: 0 10px;
+}
+
+.jumbotron {
+    width: 100%;
+    min-height: 100vh;
+    background: url(img/bg-jumbotron.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(17rem, auto));
+    align-items: center;
+    gap: 1.5rem;
+    top: 0;
 }
