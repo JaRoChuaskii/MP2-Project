@@ -94,22 +94,6 @@ body {
     }
 }
 
-.form-container {
-    position: fixed;
-    max-width: 500px;
-    width: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); 
-    z-index: 101;
-    background: #fff;
-    padding: 45px;
-}
-
-#home {
-    display: none;
-}
-
 .signup-form {
     display: none;
 }
@@ -120,10 +104,6 @@ body {
 
 .form-container.active .login-form {
     display: none;
-}
-
-.login-form img,.signup-form img {
-    width: 100%;
 }
 
 #message, #matchAlert, #dupAlert {
@@ -172,7 +152,7 @@ body {
 .jumbotron {
     width: 100%;
     min-height: 100vh;
-    background: url(bg-jumbotron.jpg);
+    background: url(img/bg-jumbotron.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
