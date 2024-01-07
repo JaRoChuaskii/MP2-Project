@@ -162,11 +162,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Helper functions
   function showLoggedInState(loginName) {
-    if (loginName) {
+    if (loggedIn==true) {
+      console.log(loggedIn, "user is loggedin")
       formContainer.style.display = "none";
       formOpenBtn.style.display = "none";
       openPanel.style.display = "block";
       openPanel.innerHTML = "Hi " + loginName;
+    }else {
+      console.log(loggedIn, "user is loggedin")
     }
   }
 
