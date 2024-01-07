@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var f = document.forms["regForm"].elements;
 
   // Check if user is already logged in
-  const loginName = localStorage.getItem('fname');
+  const loginName = window.localStorage.getItem('fname');
   if (loginName) {
     showLoggedInState(loginName);
   }
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
       pass=document.getElementById("floatingPwd").value;
 
       let user_records = new Array();
-      user_records = JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
+      user_records = JSON.parse(window.localStorage.getItem("users"))?JSON.parse(window.localStorage.getItem("users")):[]
       if (user_records.some((v) => {
           return v.email==email
       })) {
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function () {
               "email":email,
               "pass":pass
           })
-          localStorage.setItem("users", JSON.stringify(user_records)); 
+          window.localStorage.setItem("users", JSON.stringify(user_records)); 
       }
   });
 
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function () {
       passwords=document.getElementById("userPassword").value;
 
       let login_records = new Array();
-      login_records = JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
+      login_records = JSON.parse(window.localStorage.getItem("users"))?JSON.parse(window.localStorage.getItem("users")):[]
       if (login_records.some((v) => {
           return v.email==email && v.pass==passwords
       })) {
@@ -156,8 +156,8 @@ document.addEventListener('DOMContentLoaded', function () {
           return v.email==email && v.pass==passwords
         })[0]
         const loginName=current_user.fname;
-        localStorage.setItem("userName", current_user.fname);
-        localStorage.setItem("email", current_user.email);
+        window.localStorage.setItem("userName", current_user.fname);
+        window.localStorage.setItem("email", current_user.email);
         showLoggedInState(loginName);
       }else {
         alert("you are not logged in!");
@@ -174,9 +174,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Logout functions
   logoutBtn.addEventListener('click', function() {
-    localStorage.removeItem("userName");
-    localStorage.removeItem("email");
-    location.reload();
+    window.localStorage.removeItem("userName");
+    window.localStorage.removeItem("email");
+    window.location.reload();
   });
   
 });
