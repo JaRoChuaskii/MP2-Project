@@ -18,16 +18,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var f = document.forms["regForm"].elements;
 
-  let stored_user = new Array();
-  stored_user = JSON.parse(localStorage.getItem("loggedIn"))?JSON.parse(localStorage.getItem("loggedIn")):[]
-
-  if (stored_user.fname) {
-    const loginName = stored_user.fname;
-    showLoggedInState(loginName);
-  } else {
-    
-  }
-
   formOpenBtn.addEventListener('click', function () {
 
       if (home.style.display === "block") {
@@ -169,6 +159,14 @@ document.addEventListener('DOMContentLoaded', function () {
         alert("you are not logged in!");
       }
   });
+
+ // Check if the user is already logged in
+  let storedUsername = new Array();
+  storedUsername = JSON.parse(localStorage.getItem("loggedIn"))?JSON.parse(localStorage.getItem("loggedIn")):[]
+  if (storedUsername.fname){
+    const loginName=storedUsername.fname;
+    showLoggedInState(loginName);
+  }
 
   // Helper functions
   function showLoggedInState(loginName) {
