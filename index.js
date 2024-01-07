@@ -19,6 +19,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var f = document.forms["regForm"].elements;
 
+  if (loggedIn==true) {
+    console.log(loggedIn);
+    showLoggedInState(loggedIn);
+  }
+
   formOpenBtn.addEventListener('click', function () {
 
       if (home.style.display === "block") {
@@ -162,14 +167,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Helper functions
   function showLoggedInState(loginName) {
-    if (loggedIn==true) {
+    if (loginName) {
       console.log(loggedIn, "user is loggedin")
       formContainer.style.display = "none";
       formOpenBtn.style.display = "none";
       openPanel.style.display = "block";
       openPanel.innerHTML = "Hi " + loginName;
     }else {
-      console.log(loggedIn, "user is loggedin")
+      console.log(loggedIn, "user is not loggedin")
     }
   }
 
