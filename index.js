@@ -21,9 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
   let stored_user = new Array();
   stored_user = JSON.parse(localStorage.getItem("loggedIn"))?JSON.parse(localStorage.getItem("loggedIn")):[]
 
-  if (stored_user.some((v) => {
-    return v.fname
-  })) {
+  if (stored_user.fname) {
     const loginName = stored_user.fname;
     showLoggedInState(loginName);
   } else {
