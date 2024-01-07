@@ -157,8 +157,7 @@ document.addEventListener('DOMContentLoaded', function () {
           return v.email==email && v.pass==passwords
         })[0]
         const loginName=current_user.fname;
-        window.localStorage.setItem("userName", current_user.fname);
-        window.localStorage.setItem("email", current_user.email);
+        window.localStorage.setItem("loggedIn", JSON.stringify(login_records));
         showLoggedInState(loginName);
       }else {
         alert("you are not logged in!");
