@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var f = document.forms["regForm"].elements;
 
   // Check if user is already logged in
-  const loginName = window.localStorage.getItem('fname');
+  // const loginName = window.localStorage.getItem('fname');
   if (loginName) {
     console.log(loginName);
     showLoggedInState(loginName);
@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function () {
           return v.email==email && v.pass==passwords
         })[0]
         const loginName=current_user.fname;
-        window.localStorage.setItem("loggedIn", JSON.stringify(login_records));
+        window.localStorage.setItem("loggedIn", JSON.stringify(current_user));
         showLoggedInState(loginName);
       }else {
         alert("you are not logged in!");
@@ -166,10 +166,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Helper functions
   function showLoggedInState(loginName) {
-    formContainer.style.display = "none";
-    formOpenBtn.style.display = "none";
-    openPanel.style.display = "block";
-    openPanel.innerHTML = "Hi " + loginName;
+    if (loginName) {
+      formContainer.style.display = "none";
+      formOpenBtn.style.display = "none";
+      openPanel.style.display = "block";
+      openPanel.innerHTML = "Hi " + loginName;
+    }
   }
 
   // Logout functions
