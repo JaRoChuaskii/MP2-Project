@@ -19,8 +19,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var f = document.forms["regForm"].elements;
 
-  console.log(loggedIn, "Logging In");
-
   formOpenBtn.addEventListener('click', function () {
 
       if (home.style.display === "block") {
