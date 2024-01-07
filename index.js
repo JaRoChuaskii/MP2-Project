@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Check if user is already logged in
   const loginName = window.localStorage.getItem('fname');
   if (loginName) {
+    console.log(loginName);
     showLoggedInState(loginName);
   }
 
