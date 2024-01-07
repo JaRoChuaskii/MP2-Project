@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', function () {
   formContainer = document.querySelector(".form-container"),
   signUpBtn = document.querySelector("#signup"),
   logoutBtn = document.querySelector("#logout"),
-  openPanel = document.querySelector("#dropdownMenuButtonLight");
+  openPanel = document.querySelector("#dropdownMenuButtonLight"),
+  loggedIn = window.localStorage.getItem("isLoggedIn"),
   loginBtn = document.querySelector("#login");
 
   var password=document.getElementById("floatingPwd");
@@ -18,12 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var f = document.forms["regForm"].elements;
 
-  // Check if user is already logged in
-  // const loginName = window.localStorage.getItem('fname');
-  if (loginName) {
-    console.log(loginName);
-    showLoggedInState(loginName);
-  }
+  console.log(loggedIn, "Logging In");
 
   formOpenBtn.addEventListener('click', function () {
 
@@ -139,7 +135,8 @@ document.addEventListener('DOMContentLoaded', function () {
               "email":email,
               "pass":pass
           })
-          window.localStorage.setItem("users", JSON.stringify(user_records)); 
+          window.localStorage.setItem("users", JSON.stringify(user_records));
+          window.location.reload();
       }
   });
 
@@ -158,6 +155,7 @@ document.addEventListener('DOMContentLoaded', function () {
         })[0]
         const loginName=current_user.fname;
         window.localStorage.setItem("loggedIn", JSON.stringify(current_user));
+        window.localStorage.setItem("isLoggedIn", true);
         showLoggedInState(loginName);
       }else {
         alert("you are not logged in!");
@@ -176,8 +174,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Logout functions
   logoutBtn.addEventListener('click', function() {
-    window.localStorage.removeItem("userName");
-    window.localStorage.removeItem("email");
+    window.localStorage.removeItem("loggedIn");
+    window.localStorage.removeItem("isLoggedIn")
     window.location.reload();
   });
   
