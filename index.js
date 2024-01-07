@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function () {
   signUpBtn = document.querySelector("#signup"),
   logoutBtn = document.querySelector("#logout"),
   openPanel = document.querySelector("#dropdownMenuButtonLight"),
-  loggedIn = window.localStorage.getItem("isLoggedIn"),
   loginBtn = document.querySelector("#login");
 
   var password=document.getElementById("floatingPwd");
@@ -19,9 +18,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var f = document.forms["regForm"].elements;
 
-  if (loggedIn==true) {
-    console.log(loggedIn);
-    showLoggedInState(loggedIn);
+  let stored_user = new Array();
+  stored_user = JSON.parse(window.localStorage.getItem("loggedIn"))?JSON.parse(window.localStorage.getItem("loggedIn")):[]
+
+  if (stored_user.some((v) => {
+    return v.fname
+  })) {
+    const loginName = stored_user.fname;
+    showLoggedInState(loginName);
   } else {
     
   }
@@ -145,7 +149,9 @@ document.addEventListener('DOMContentLoaded', function () {
       }
   });
 
-  loginData.addEventListener('click', function () {
+  loginData.addEventListener('click', function (event) {
+      event.preventDefault();
+
       let email, passwords;
       email=document.getElementById("userEmail").value;
       passwords=document.getElementById("userPassword").value;
@@ -160,7 +166,6 @@ document.addEventListener('DOMContentLoaded', function () {
         })[0]
         const loginName=current_user.fname;
         window.localStorage.setItem("loggedIn", JSON.stringify(current_user));
-        window.localStorage.setItem("isLoggedIn", true);
         showLoggedInState(loginName);
       }else {
         alert("you are not logged in!");
@@ -169,7 +174,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Helper functions
   function showLoggedInState(loginName) {
-      console.log(loggedIn, "user is loggedin")
       formContainer.style.display = "none";
       formOpenBtn.style.display = "none";
       openPanel.style.display = "block";
