@@ -19,10 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var f = document.forms["regForm"].elements;
 
-  if (loggedIn==true) {
-    console.log(loggedIn);
-    showLoggedInState(loggedIn);
-  }
+  console.log(loggedIn);
 
   formOpenBtn.addEventListener('click', function () {
 
@@ -158,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function () {
         })[0]
         const loginName=current_user.fname;
         window.localStorage.setItem("loggedIn", JSON.stringify(current_user));
-        window.localStorage.setItem("isLoggedIn", true);
+        loggedIn = window.localStorage.setItem("isLoggedIn", true);
         showLoggedInState(loginName);
       }else {
         alert("you are not logged in!");
@@ -174,7 +171,6 @@ document.addEventListener('DOMContentLoaded', function () {
       openPanel.style.display = "block";
       openPanel.innerHTML = "Hi " + loginName;
     }else {
-      console.log(loggedIn, "user is not loggedin")
     }
   }
 
