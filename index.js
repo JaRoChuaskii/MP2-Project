@@ -21,12 +21,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 	loginBtn.addEventListener("click",(e) =>  {
-		e.preventDefault();
 		formContainer.classList.remove("active");
 	});
 
 	signUpBtn.addEventListener("click",(e) =>  {
-		e.preventDefault();
 		formContainer.classList.add("active");
 	});
 
@@ -103,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 
 	registerData.addEventListener('click', function (event) {
-		event.preventDefault();
+		
 		let fname, lname, num, email, pass, address;
 
 		fname=document.getElementById("floatingFname").value;
@@ -135,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 
 	loginData.addEventListener('click', function (event) {
-		event.preventDefault();
+		
 
 		let email, passwords;
 		email=document.getElementById("userEmail").value;
