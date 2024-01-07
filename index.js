@@ -160,23 +160,20 @@ document.addEventListener('DOMContentLoaded', function () {
         })[0]
         const loginName=current_user.fname;
         window.localStorage.setItem("loggedIn", JSON.stringify(current_user));
-        loggedIn = window.localStorage.setItem("isLoggedIn", true);
-        showLoggedInState(loggedIn, loginName);
+        window.localStorage.setItem("isLoggedIn", true);
+        showLoggedInState(loginName);
       }else {
         alert("you are not logged in!");
       }
   });
 
   // Helper functions
-  function showLoggedInState(loggedIn, loginName) {
-    if (loggedIn == true) {
+  function showLoggedInState(loginName) {
       console.log(loggedIn, "user is loggedin")
       formContainer.style.display = "none";
       formOpenBtn.style.display = "none";
       openPanel.style.display = "block";
       openPanel.innerHTML = "Hi " + loginName;
-    }else {
-    }
   }
 
   // Logout functions
