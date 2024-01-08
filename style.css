@@ -135,7 +135,7 @@ body {
   /* CUSTOMIZE THE HEADER
   -------------------------------------------------- */
 
-#dropdownMenuButtonLight {
+#dropdownMenuButtonLight, #openMapModal {
     display: none;
 }
 
@@ -161,4 +161,8 @@ body {
     align-items: center;
     gap: 1.5rem;
     top: 0;
+}
+
+.fixed-top {
+	background-color: steelblue;
 }
