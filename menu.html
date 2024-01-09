@@ -14,7 +14,7 @@
     <header>
         <nav class="navbar navbar-expand-md fixed-top">
             <div class="container text-light">
-                <a class="navbar-brand" href="#"><img src="logo.png" alt="Logo" class="d-inline-block align-text-top logo"></a>
+                <a class="navbar-brand" href="index.html"><img src="logo.png" alt="Logo" class="d-inline-block align-text-top logo"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class=" navbar-toggler-icon"></span>
                 </button>
@@ -132,44 +132,48 @@
 					</div>
 				</div>
             </div>
-    <div class="row">
-        <div class="col-sm-1">
-            <ul class="nav flex-column">
-                <li class="nav-item">
-                    <button class="nav-link" type="button" onclick="openMenu('coffee', 'this', 'red')" id="defaultOpen">Coffee</button>
-                </li>
-                <li class="nav-item">
-                    <button class="nav-link" type="button" onclick="openMenu('tea', 'this', 'green')">Tea</button>
-                </li>
-                <li class="nav-item">
-                    <button class="nav-link" type="button" onclick="openMenu('desserts', 'this', 'blue')">Desserts</button>
-                </li>
-                <li class="nav-item">
-                    <button class="nav-link" type="button" onclick="openMenu('sandwiches', 'this', 'orange')">Sandwiches</button>
-                </li>
-                <li class="nav-item">
-                    <button class="nav-link" type="button" onclick="openMenu('pastas', 'this', 'yellow')">Pastas</button>
-                </li>
-              </ul>
-        </div>
-        <div class="col-sm-8">
-            <div class="card-container" id="coffee"></div>
-            <div class="card-container" id="tea"></div>
-            <div class="card-container" id="desserts"></div>
-            <div class="card-container" id="sandwiches"></div>
-            <div class="card-container" id="pastas"></div>
-        </div>
-        <div class="col-sm-3">
-            <div class="sidebar">
-                <div class="head"><p>My Cart</p></div>
-                <div id="cartItem">Your cart is empty</div>
-                <div class="foot">
-                    <h3>Total</h3>
-                    <h2 id="total">Php 0.00</h2>
-                </div>
-            </div>
-        </div>
-    </div>
+			<section class="menu-panel position-absolute" id="jumbotron">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-1">
+							<ul class="nav flex-column mb-4">
+								<li class="nav-item">
+									<button class="nav-link" type="button" onclick="openMenu('coffee', 'this', 'red')" id="defaultOpen">Coffee</button>
+								</li>
+								<li class="nav-item">
+									<button class="nav-link" type="button" onclick="openMenu('tea', 'this', 'green')">Tea</button>
+								</li>
+								<li class="nav-item">
+									<button class="nav-link" type="button" onclick="openMenu('desserts', 'this', 'blue')">Desserts</button>
+								</li>
+								<li class="nav-item">
+									<button class="nav-link" type="button" onclick="openMenu('sandwiches', 'this', 'orange')">Sandwiches</button>
+								</li>
+								<li class="nav-item">
+									<button class="nav-link" type="button" onclick="openMenu('pastas', 'this', 'yellow')">Pastas</button>
+								</li>
+							  </ul>
+						</div>
+						<div class="col-md-9">
+							<div class="card-container" id="coffee"></div>
+							<div class="card-container" id="tea"></div>
+							<div class="card-container" id="desserts"></div>
+							<div class="card-container" id="sandwiches"></div>
+							<div class="card-container" id="pastas"></div>
+						</div>
+						<div class="col-md-2">
+							<div class="sidebar">
+								<div class="head"><p>My Cart</p></div>
+								<div id="cartItem">Your cart is empty</div>
+								<div class="foot">
+									<h3>Total</h3>
+									<h2 id="total">Php 0.00</h2>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
     <!-- Modal -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -186,7 +190,7 @@
                 <div id="map" style="height: 400px; margin-top: 20px;"></div>
             </div>
             <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Understood</button>
+            <button type="button" class="btn btn-primary" id="onLocUpdate">Update</button>
             </div>
         </div>
         </div>
@@ -199,7 +203,7 @@
                 cardContainer[i].style.display = "none";
             }
             
-            document.getElementById(menuName).style.display = "block";
+            document.getElementById(menuName).style.display = "grid";
         }
         // Get the element with id="defaultOpen" and click on it
         document.getElementById("defaultOpen").click();
