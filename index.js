@@ -213,8 +213,13 @@ document.addEventListener('DOMContentLoaded', function () {
 		let newAddress;
 		newAddress = document.getElementById("addressInput").value;
 		
-		let storeAddress = new Array();
-		storeAddress = JSON.parse(localStorage.getItem("loggedIn"))?JSON.parse(localStorage.getItem("loggedIn")):[]
+		let storedUser = new Array();
+		storedUser = JSON.parse(localStorage.getItem("loggedIn"))?JSON.parse(localStorage.getItem("loggedIn")):[]
+		if (storedUser.fname) {
+			storedUser.address = newAddress;
+			const loginName = storedUser.fname;
+			showLoggedInState(loginName, newAddress);
+		}
 	});
 
 });
@@ -259,16 +264,16 @@ locate.onkeyup = function() {
 }
 
 const coffee = [
-		{ id: 1, image: '', title: 'Item 1', description: 'Description for Item 1', price: 200 },
-		{ id: 2, image: '', title: 'Item 2', description: 'Description for Item 2', price: 200 },
-		{ id: 3, image: '', title: 'Item 3', description: 'Description for Item 3', price: 200 },
-		{ id: 4, image: '', title: 'Item 4', description: 'Description for Item 4', price: 200 },
-		{ id: 5, image: '', title: 'Item 5', description: 'Description for Item 5', price: 200 },
-		{ id: 6, image: '', title: 'Item 6', description: 'Description for Item 6', price: 200 },
-		{ id: 7, image: '', title: 'Item 7', description: 'Description for Item 7', price: 200 },
-		{ id: 8, image: '', title: 'Item 8', description: 'Description for Item 8', price: 200 },
-		{ id: 9, image: '', title: 'Item 9', description: 'Description for Item 9', price: 200 },
-		{ id: 10, image: '', title: 'Item 10', description: 'Description for Item 10', price: 200 },
+		{ id: 1, image: 'img/robusta.jpg', title: 'Item 1', description: 'Description for Item 1', price: 200 },
+		{ id: 2, image: 'img/arabica.jpg', title: 'Item 2', description: 'Description for Item 2', price: 200 },
+		{ id: 3, image: 'img/pexels-erica-strolen-8700719.jpg', title: 'Item 3', description: 'Description for Item 3', price: 200 },
+		{ id: 4, image: 'img/pexels-caleb-kwok-2559312.jpg', title: 'Item 4', description: 'Description for Item 4', price: 200 },
+		{ id: 5, image: 'img/pexels-fallon-michael-3551717.jpg', title: 'Item 5', description: 'Description for Item 5', price: 200 },
+		{ id: 6, image: 'img/pexels-esra-afşar-13716965.jpg', title: 'Item 6', description: 'Description for Item 6', price: 200 },
+		{ id: 7, image: 'img/pexels-marta-dzedyshko-2251758.jpg', title: 'Item 7', description: 'Description for Item 7', price: 200 },
+		{ id: 8, image: 'img/pexels-mushtaq-hussain-10983062.jpg', title: 'Item 8', description: 'Description for Item 8', price: 200 },
+		{ id: 9, image: 'img/pexels-viktoria-alipatova-2668510.jpg', title: 'Item 9', description: 'Description for Item 9', price: 200 },
+		{ id: 10, image: 'img/pexels-anna-tarazevich-4927150.jpg', title: 'Item 10', description: 'Description for Item 10', price: 200 },
 		// Add more items as needed
     ];
     const categories1 = [...new Set(coffee.map((item)=>
@@ -278,30 +283,28 @@ const coffee = [
     {
         var {image, title, description, price} = item;
         return(
-              `<div class="col-md-12">
-			  <div class='card m-2'>
-                    <img class='images' src=${image}></img>
+              `<div class='card m-2'>
+              <img class='card-img-top' src=${image} alt=${image}></img>
               <div class='card-body'>
               <h5>${title}</h5>
               <p>Php ${price}.00</p>`+
               "<button class='btn btn-primary' onclick='addtocart("+(v++)+")'>Add to cart</button>"+
               `</div>
-			  </div>
               </div>`
         )
     }).join('')
 	
 const tea = [
-		{ id: 1, image: '', title: 'Item 1', description: 'Description for Item 1', price: 200 },
-		{ id: 2, image: '', title: 'Item 2', description: 'Description for Item 2', price: 200 },
-		{ id: 3, image: '', title: 'Item 3', description: 'Description for Item 3', price: 200 },
-		{ id: 4, image: '', title: 'Item 4', description: 'Description for Item 4', price: 200 },
-		{ id: 5, image: '', title: 'Item 5', description: 'Description for Item 5', price: 200 },
-		{ id: 6, image: '', title: 'Item 6', description: 'Description for Item 6', price: 200 },
-		{ id: 7, image: '', title: 'Item 7', description: 'Description for Item 7', price: 200 },
-		{ id: 8, image: '', title: 'Item 8', description: 'Description for Item 8', price: 200 },
-		{ id: 9, image: '', title: 'Item 9', description: 'Description for Item 9', price: 200 },
-		{ id: 10, image: '', title: 'Item 10', description: 'Description for Item 10', price: 200 },
+		{ id: 1, image: '', title: 'tea 1', description: 'Description for Item 1', price: 200 },
+		{ id: 2, image: '', title: 'tea 2', description: 'Description for Item 2', price: 200 },
+		{ id: 3, image: '', title: 'tea 3', description: 'Description for Item 3', price: 200 },
+		{ id: 4, image: '', title: 'tea 4', description: 'Description for Item 4', price: 200 },
+		{ id: 5, image: '', title: 'tea 5', description: 'Description for Item 5', price: 200 },
+		{ id: 6, image: '', title: 'tea 6', description: 'Description for Item 6', price: 200 },
+		{ id: 7, image: '', title: 'tea 7', description: 'Description for Item 7', price: 200 },
+		{ id: 8, image: '', title: 'tea 8', description: 'Description for Item 8', price: 200 },
+		{ id: 9, image: '', title: 'tea 9', description: 'Description for Item 9', price: 200 },
+		{ id: 10, image: '', title: 'tea 10', description: 'Description for Item 10', price: 200 },
 		// Add more items as needed
     ];
     const categories2 = [...new Set(tea.map((item)=>
@@ -311,30 +314,28 @@ const tea = [
     {
         var {image, title, description, price} = item;
         return(
-              `<div class="col-md-12">
-			  <div class='card m-2'>
+              `<div class='card m-2'>
                     <img class='images' src=${image}></img>
               <div class='card-body'>
               <h5>${title}</h5>
               <p>Php ${price}.00</p>`+
               "<button class='btn btn-primary' onclick='addtocart("+(w++)+")'>Add to cart</button>"+
               `</div>
-			  </div>
               </div>`
         )
     }).join('')
 	
 const desserts = [
-		{ id: 1, image: '', title: 'Item 1', description: 'Description for Item 1', price: 200 },
-		{ id: 2, image: '', title: 'Item 2', description: 'Description for Item 2', price: 200 },
-		{ id: 3, image: '', title: 'Item 3', description: 'Description for Item 3', price: 200 },
-		{ id: 4, image: '', title: 'Item 4', description: 'Description for Item 4', price: 200 },
-		{ id: 5, image: '', title: 'Item 5', description: 'Description for Item 5', price: 200 },
-		{ id: 6, image: '', title: 'Item 6', description: 'Description for Item 6', price: 200 },
-		{ id: 7, image: '', title: 'Item 7', description: 'Description for Item 7', price: 200 },
-		{ id: 8, image: '', title: 'Item 8', description: 'Description for Item 8', price: 200 },
-		{ id: 9, image: '', title: 'Item 9', description: 'Description for Item 9', price: 200 },
-		{ id: 10, image: '', title: 'Item 10', description: 'Description for Item 10', price: 200 },
+		{ id: 1, image: '', title: 'desserts 1', description: 'Description for Item 1', price: 200 },
+		{ id: 2, image: '', title: 'desserts 2', description: 'Description for Item 2', price: 200 },
+		{ id: 3, image: '', title: 'desserts 3', description: 'Description for Item 3', price: 200 },
+		{ id: 4, image: '', title: 'desserts 4', description: 'Description for Item 4', price: 200 },
+		{ id: 5, image: '', title: 'desserts 5', description: 'Description for Item 5', price: 200 },
+		{ id: 6, image: '', title: 'desserts 6', description: 'Description for Item 6', price: 200 },
+		{ id: 7, image: '', title: 'desserts 7', description: 'Description for Item 7', price: 200 },
+		{ id: 8, image: '', title: 'desserts 8', description: 'Description for Item 8', price: 200 },
+		{ id: 9, image: '', title: 'desserts 9', description: 'Description for Item 9', price: 200 },
+		{ id: 10, image: '', title: 'desserts 10', description: 'Description for Item 10', price: 200 },
 		// Add more items as needed
     ];
     const categories3 = [...new Set(desserts.map((item)=>
@@ -344,30 +345,28 @@ const desserts = [
     {
         var {image, title, description, price} = item;
         return(
-              `<div class="col-md-12">
-			  <div class='card m-2'>
+              `<div class='card m-2'>
                     <img class='images' src=${image}></img>
               <div class='card-body'>
               <h5>${title}</h5>
               <p>Php ${price}.00</p>`+
               "<button class='btn btn-primary' onclick='addtocart("+(x++)+")'>Add to cart</button>"+
               `</div>
-			  </div>
               </div>`
         )
     }).join('')
 	
 const sandwiches = [
-		{ id: 1, image: '', title: 'Item 1', description: 'Description for Item 1', price: 200 },
-		{ id: 2, image: '', title: 'Item 2', description: 'Description for Item 2', price: 200 },
-		{ id: 3, image: '', title: 'Item 3', description: 'Description for Item 3', price: 200 },
-		{ id: 4, image: '', title: 'Item 4', description: 'Description for Item 4', price: 200 },
-		{ id: 5, image: '', title: 'Item 5', description: 'Description for Item 5', price: 200 },
-		{ id: 6, image: '', title: 'Item 6', description: 'Description for Item 6', price: 200 },
-		{ id: 7, image: '', title: 'Item 7', description: 'Description for Item 7', price: 200 },
-		{ id: 8, image: '', title: 'Item 8', description: 'Description for Item 8', price: 200 },
-		{ id: 9, image: '', title: 'Item 9', description: 'Description for Item 9', price: 200 },
-		{ id: 10, image: '', title: 'Item 10', description: 'Description for Item 10', price: 200 },
+		{ id: 1, image: '', title: 'sandwiches 1', description: 'Description for Item 1', price: 200 },
+		{ id: 2, image: '', title: 'sandwiches 2', description: 'Description for Item 2', price: 200 },
+		{ id: 3, image: '', title: 'sandwiches 3', description: 'Description for Item 3', price: 200 },
+		{ id: 4, image: '', title: 'sandwiches 4', description: 'Description for Item 4', price: 200 },
+		{ id: 5, image: '', title: 'sandwiches 5', description: 'Description for Item 5', price: 200 },
+		{ id: 6, image: '', title: 'sandwiches 6', description: 'Description for Item 6', price: 200 },
+		{ id: 7, image: '', title: 'sandwiches 7', description: 'Description for Item 7', price: 200 },
+		{ id: 8, image: '', title: 'sandwiches 8', description: 'Description for Item 8', price: 200 },
+		{ id: 9, image: '', title: 'sandwiches 9', description: 'Description for Item 9', price: 200 },
+		{ id: 10, image: '', title: 'sandwiches 10', description: 'Description for Item 10', price: 200 },
 		// Add more items as needed
     ];
     const categories4 = [...new Set(sandwiches.map((item)=>
@@ -377,30 +376,28 @@ const sandwiches = [
     {
         var {image, title, description, price} = item;
         return(
-              `<div class="col-md-12">
-			  <div class='card m-2'>
+              `<div class='card m-2'>
                     <img class='images' src=${image}></img>
               <div class='card-body'>
               <h5>${title}</h5>
               <p>Php ${price}.00</p>`+
               "<button class='btn btn-primary' onclick='addtocart("+(y++)+")'>Add to cart</button>"+
               `</div>
-			  </div>
               </div>`
         )
     }).join('')
 	
 const pastas = [
-		{ id: 1, image: '', title: 'Item 1', description: 'Description for Item 1', price: 200 },
-		{ id: 2, image: '', title: 'Item 2', description: 'Description for Item 2', price: 200 },
-		{ id: 3, image: '', title: 'Item 3', description: 'Description for Item 3', price: 200 },
-		{ id: 4, image: '', title: 'Item 4', description: 'Description for Item 4', price: 200 },
-		{ id: 5, image: '', title: 'Item 5', description: 'Description for Item 5', price: 200 },
-		{ id: 6, image: '', title: 'Item 6', description: 'Description for Item 6', price: 200 },
-		{ id: 7, image: '', title: 'Item 7', description: 'Description for Item 7', price: 200 },
-		{ id: 8, image: '', title: 'Item 8', description: 'Description for Item 8', price: 200 },
-		{ id: 9, image: '', title: 'Item 9', description: 'Description for Item 9', price: 200 },
-		{ id: 10, image: '', title: 'Item 10', description: 'Description for Item 10', price: 200 },
+		{ id: 1, image: '', title: 'pasta 1', description: 'Description for Item 1', price: 200 },
+		{ id: 2, image: '', title: 'pasta 2', description: 'Description for Item 2', price: 200 },
+		{ id: 3, image: '', title: 'pasta 3', description: 'Description for Item 3', price: 200 },
+		{ id: 4, image: '', title: 'pasta 4', description: 'Description for Item 4', price: 200 },
+		{ id: 5, image: '', title: 'pasta 5', description: 'Description for Item 5', price: 200 },
+		{ id: 6, image: '', title: 'pasta 6', description: 'Description for Item 6', price: 200 },
+		{ id: 7, image: '', title: 'pasta 7', description: 'Description for Item 7', price: 200 },
+		{ id: 8, image: '', title: 'pasta 8', description: 'Description for Item 8', price: 200 },
+		{ id: 9, image: '', title: 'pasta 9', description: 'Description for Item 9', price: 200 },
+		{ id: 10, image: '', title: 'pasta 10', description: 'Description for Item 10', price: 200 },
 		// Add more items as needed
     ];
     const categories5 = [...new Set(pastas.map((item)=>
@@ -410,15 +407,13 @@ const pastas = [
     {
         var {image, title, description, price} = item;
         return(
-              `<div class="col-md-12">
-			  <div class='card m-2'>
+              `<div class='card m-2'>
                     <img class='images' src=${image}></img>
               <div class='card-body'>
               <h5>${title}</h5>
               <p>Php ${price}.00</p>`+
               "<button class='btn btn-primary' onclick='addtocart("+(z++)+")'>Add to cart</button>"+
               `</div>
-			  </div>
               </div>`
         )
     }).join('')
@@ -450,7 +445,7 @@ const pastas = [
                 return(
                     `<div class='cart-item'>
                     <div class='row-img'>
-                        <img class='rowimg' src=${image}>
+                        <!--<img class='rowimg' src=${image}>-->
                     </div>
                     <p style='font-size:12px;'>${title}</p>
                     <h2 style='font-size: 15px;'>Php ${price}.00</h2>`+

@@ -170,3 +170,9 @@ body {
 .card-container {
 	grid-template-columns: auto auto auto;
 }
+
+.card-img-top {
+	object-fit: cover;
+	height: 300px;
+	position: relative;
+}
