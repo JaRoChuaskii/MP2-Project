@@ -295,16 +295,16 @@ const coffee = [
     }).join('')
 	
 const tea = [
-		{ id: 1, image: '', title: 'tea 1', description: 'Description for Item 1', price: 200 },
-		{ id: 2, image: '', title: 'tea 2', description: 'Description for Item 2', price: 200 },
-		{ id: 3, image: '', title: 'tea 3', description: 'Description for Item 3', price: 200 },
-		{ id: 4, image: '', title: 'tea 4', description: 'Description for Item 4', price: 200 },
-		{ id: 5, image: '', title: 'tea 5', description: 'Description for Item 5', price: 200 },
-		{ id: 6, image: '', title: 'tea 6', description: 'Description for Item 6', price: 200 },
-		{ id: 7, image: '', title: 'tea 7', description: 'Description for Item 7', price: 200 },
-		{ id: 8, image: '', title: 'tea 8', description: 'Description for Item 8', price: 200 },
-		{ id: 9, image: '', title: 'tea 9', description: 'Description for Item 9', price: 200 },
-		{ id: 10, image: '', title: 'tea 10', description: 'Description for Item 10', price: 200 },
+		{ id: 1, image: 'img/pexels-evgeniy-alekseyev-7332981.jpg', title: 'tea 1', description: 'Description for Item 1', price: 200 },
+		{ id: 2, image: 'img/pexels-anna-galimova-9170897.jpg', title: 'tea 2', description: 'Description for Item 2', price: 200 },
+		{ id: 3, image: 'img/pexels-iwan-wasyl-5942633.jpg', title: 'tea 3', description: 'Description for Item 3', price: 200 },
+		{ id: 4, image: 'img/pexels-anastasia-belousova-3522560.jpg', title: 'tea 4', description: 'Description for Item 4', price: 200 },
+		{ id: 5, image: 'img/pexels-дарья-сергунина-8217985.jpg', title: 'tea 5', description: 'Description for Item 5', price: 200 },
+		{ id: 6, image: 'img/pexels-brett-sayles-19553534.jpg', title: 'tea 6', description: 'Description for Item 6', price: 200 },
+		{ id: 7, image: 'img/pexels-eva-bronzini-5733207.jpg', title: 'tea 7', description: 'Description for Item 7', price: 200 },
+		{ id: 8, image: 'img/pexels-olia-danilevich-5760197.jpg', title: 'tea 8', description: 'Description for Item 8', price: 200 },
+		{ id: 9, image: 'img/pexels-magda-ehlers-3090274.jpg', title: 'tea 9', description: 'Description for Item 9', price: 200 },
+		{ id: 10, image: 'img/pexels-vitaly-gorbachev-12433998.jpg', title: 'tea 10', description: 'Description for Item 10', price: 200 },
 		// Add more items as needed
     ];
     const categories2 = [...new Set(tea.map((item)=>
