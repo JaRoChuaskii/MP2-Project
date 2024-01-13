@@ -278,19 +278,19 @@ const coffee = [
     ];
     const categories1 = [...new Set(coffee.map((item)=>
         {return item}))]
-         let v=0;
+	let v=0;
     document.getElementById('coffee').innerHTML = categories1.map((item)=>
     {
         var {image, title, description, price} = item;
         return(
-              `<div class='card m-2'>
-              <img class='card-img-top' src=${image} alt=${image}></img>
-              <div class='card-body'>
-              <h5>${title}</h5>
-              <p>Php ${price}.00</p>`+
-              "<button class='btn btn-primary' onclick='addtocart("+(v++)+")'>Add to cart</button>"+
-              `</div>
-              </div>`
+			`<div class='card m-2'>
+					<img class='images' src=${image}></img>
+			<div class='card-body'>
+			<h5>${title}</h5>
+			<p>Php ${price}.00</p>`+
+			"<button class='btn btn-primary' onclick='addtocart("+(w++)+")'>Add to cart</button>"+
+			`</div>
+			</div>`
         )
     }).join('')
 	
@@ -314,14 +314,14 @@ const tea = [
     {
         var {image, title, description, price} = item;
         return(
-              `<div class='card m-2'>
-                    <img class='images' src=${image}></img>
-              <div class='card-body'>
-              <h5>${title}</h5>
-              <p>Php ${price}.00</p>`+
-              "<button class='btn btn-primary' onclick='addtocart("+(w++)+")'>Add to cart</button>"+
-              `</div>
-              </div>`
+			`<div class='card m-2'>
+					<img class='images' src=${image}></img>
+			<div class='card-body'>
+			<h5>${title}</h5>
+			<p>Php ${price}.00</p>`+
+			"<button class='btn btn-primary' onclick='addtocart("+(w++)+")'>Add to cart</button>"+
+			`</div>
+			</div>`
         )
     }).join('')
 	
