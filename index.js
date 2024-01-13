@@ -288,7 +288,7 @@ const coffee = [
 			<div class='card-body'>
 			<h5>${title}</h5>
 			<p>Php ${price}.00</p>`+
-			"<button class='btn btn-primary' onclick='addtocart("+(w++)+")'>Add to cart</button>"+
+			"<button class='btn btn-primary' onclick='addtocart("+(v++)+")'>Add to cart</button>"+
 			`</div>
 			</div>`
         )
