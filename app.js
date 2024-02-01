@@ -13,10 +13,7 @@ Quagga.init({
         readers: ["ean_reader", "ean_8_reader"]
     }
 }, function (err) {
-    if (err) {
-        console.error(err);
-        return;
-    }
+
     console.log("Initialization finished. Ready to start");
     Quagga.start();
 });
