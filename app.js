@@ -6,7 +6,7 @@ Quagga.init({
         constraints: {
             width: 640,
             height: 480,
-            facingMode: "environment" // or "user" for the front camera
+            facingMode: "user" // or "user" for the front camera
         },
     },
     decoder: {
