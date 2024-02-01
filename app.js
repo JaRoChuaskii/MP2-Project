@@ -14,7 +14,7 @@ Quagga.init({
     }
 }, function (err) {
     if (err) {
-        console.error(err);
+        //console.error(err);
         return;
     }
     console.log("Initialization finished. Ready to start");
