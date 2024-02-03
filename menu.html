@@ -3,31 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Barcode Scanner App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
-        #interactive.viewport {
-            position: relative;
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-
-        #interactive.viewport > canvas,
-        #interactive.viewport > video {
-            max-width: 100%;
-            width: 100%;
+        #reader {
+            width: 600px;
         }
-    </style>
+        #result {
+            text-align: center;
+            font-size: 1.5rem;
+        }
+        </style>
 </head>
 <body>
-<div class="container mt-5">
-    <h2>Barcode Scanner</h2>
-    <div id="interactive" class="viewport"></div>
-    <div id="result" class="mt-3"></div>
-</div>
+    <main>
+        <div id="reader"></div>
+        <div class="result"></div>
+    </main>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="https://cdn.rawgit.com/serratus/quaggaJS/master/dist/quagga.min.js"></script>
-<script src="app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="./node_modules/html5-qrcode/html5-qrcode.min.js"></script>
+    <script>
 
+        const codeDetector = new Html5QrcodeScanner('reader', {
+            qrbox: {
+                width: 250,
+                height: 250,
+            },
+            fps: 1000,
+            aspectRatio: 1.6,
+        });
+
+        codeDetector.render(success, error);
+
+        function success(result) {
+            document.getElementbyID('result').innerHTML = `
+            <h2>Success!</h2><p>${result}</p>
+            `;
+
+            codeDetector.clear();
+            document.getElementbyID('reader').remove();
+        }
+
+        function error(err) {
+            console.error(err);
+        }
+    </script>
 </body>
 </html>
