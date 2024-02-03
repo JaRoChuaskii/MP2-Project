@@ -27,7 +27,7 @@
     </main>
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="./node_modules/html5-qrcode/html5-qrcode.min.js"></script>
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
     <script>
 
         const codeDetector = new Html5QrcodeScanner('reader', {
@@ -36,7 +36,7 @@
                 height: 250,
             },
             fps: 1000,
-            aspectRatio: 1.6,
+            aspectRatio: 1.0,
         });
 
         codeDetector.render(success, error);
