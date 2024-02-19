@@ -153,6 +153,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(17rem, auto));
     align-items: center;
+    gap: 1.5rem;
     top: 0;
 }
 
