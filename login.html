@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        form {
+            width: 500px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <form id="loginForm">
+        <h2>Login</h2>
+        <input type="text" placeholder="Username" required id="username" />
+        <input type="password" placeholder="Password" required id="password" />
+        <button type="submit">Login</button>
+        &nbsp;<a href="registher.html">Not yet registered?</a>
+    </form>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event){
+            event.preventDefault();
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            var user = localStorage.getItem(username);
+
+            if (user) {
+                var parsedUser = JSON.parse(user);
+                if (parsedUser.password === password) {
+                    localStorage.setItem("user", JSON.stringify(parsedUser));
+                    window.location.href = "index.html"
+                } else {
+                    alert("Password you enter is incorrect!");
+                }
+            } else {
+                alert("User not found!");
+            }
+        });
+    </script>
+</body>
+</html>

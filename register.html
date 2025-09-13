@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="registerForm">
+        <h2>Register</h2>
+        <input type="text" placeholder="Name" required id="name" />
+        <input type="text" placeholder="Username" required id="username" />
+        <input type="password" placeholder="Password" required id="password" />
+        <input type="password" placeholder="Confirm Password"required id="confirmPassword">
+        <button type="submit">Register</button>
+        &nbsp;<a href="registher.html">Already registered?</a>
+    </form>
+    
+    <script>
+        document.getElementById("registerForm").addEventListener("submit", function(event){
+            event.preventDefault();
+
+            var name = document.getElementById("name").value;
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+
+            if (password !== confirmPassword) {
+                alert("Passwords does not match!");
+                return;
+            }
+
+            localStorage.setItem(username, jSON.stringify(user));
+            alert("Registration is successful! Redirecting to login page.");
+            window.location.href = "login.html";
+
+        });
+    </script>
+</body>
+</html>
