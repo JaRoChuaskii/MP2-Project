@@ -25,7 +25,7 @@
             parsedUser = JSON.parse(localStorage.getItem("user"))?JSON.parse(localStorage.getItem("user")):[]
             if(parsedUser) {
                 console.log(parsedUser);
-                document.getElementById("welcomeMessage").innerHTML = "Hello " + parsedUser.username;
+                document.getElementById("welcomeMessage").innerHTML = "Hello " + parsedUser;
                 document.getElementById("logoutBtn").classList.remove("hidden");
             }else{
                 document.getElementById("welcomeMessage").innerHTML = `Hello please <a href = 'login.html'>login</a>`;
