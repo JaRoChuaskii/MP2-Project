@@ -43,7 +43,7 @@
 
             if (user) {
                 const parsedUser = JSON.parse(user);
-                if (parsedUser.password === password) {
+                if (parsedUser.password === password && parsedUser.username === username) {
                     // Convert the object to a JSON string before storing
                     localStorage.setItem('user', JSON.stringify(parsedUser));
                     window.location.href = "index.html"
