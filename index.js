@@ -262,37 +262,6 @@ function initMap() {
 	zoom: 15
 	});
 }
-
-const coffee = [
-		{ id: 1, image: 'img/robusta.jpg', title: 'Item 1', description: 'Description for Item 1', price: 200 },
-		{ id: 2, image: 'img/arabica.jpg', title: 'Item 2', description: 'Description for Item 2', price: 200 },
-		{ id: 3, image: 'img/pexels-erica-strolen-8700719.jpg', title: 'Item 3', description: 'Description for Item 3', price: 200 },
-		{ id: 4, image: 'img/pexels-caleb-kwok-2559312.jpg', title: 'Item 4', description: 'Description for Item 4', price: 200 },
-		{ id: 5, image: 'img/pexels-fallon-michael-3551717.jpg', title: 'Item 5', description: 'Description for Item 5', price: 200 },
-		{ id: 6, image: 'img/pexels-esra-afşar-13716965.jpg', title: 'Item 6', description: 'Description for Item 6', price: 200 },
-		{ id: 7, image: 'img/pexels-marta-dzedyshko-2251758.jpg', title: 'Item 7', description: 'Description for Item 7', price: 200 },
-		{ id: 8, image: 'img/pexels-mushtaq-hussain-10983062.jpg', title: 'Item 8', description: 'Description for Item 8', price: 200 },
-		{ id: 9, image: 'img/pexels-viktoria-alipatova-2668510.jpg', title: 'Item 9', description: 'Description for Item 9', price: 200 },
-		{ id: 10, image: 'img/pexels-anna-tarazevich-4927150.jpg', title: 'Item 10', description: 'Description for Item 10', price: 200 },
-		// Add more items as needed
-    ];
-    const categories = [...new Set(coffee.map((item)=>
-        {return item}))]
-	let v=0;
-    document.getElementById('coffee').innerHTML = categories.map((item)=>
-    {
-        var {image, title, description, price} = item;
-        return(
-			`<div class='card m-2'>
-					<img class='images' src=${image}></img>
-			<div class='card-body'>
-			<h5>${title}</h5>
-			<p>Php ${price}.00</p>`+
-			"<button class='btn btn-primary' onclick='addtocart("+(v++)+")'>Add to cart</button>"+
-			`</div>
-			</div>`
-        )
-    }).join('')
 	
 const tea = [
 		{ id: 1, image: 'img/pexels-evgeniy-alekseyev-7332981.jpg', title: 'tea 1', description: 'Description for Item 1', price: 200 },
