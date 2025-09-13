@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				alert("Browser doesn't support Geolocation API.");
 			}
 		}else {
-			alert("you are not logged in!");
+			alert("you are now logged in!");
 		}
 	});
 
