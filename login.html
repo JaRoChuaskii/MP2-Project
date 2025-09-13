@@ -38,10 +38,11 @@
             var username = document.getElementById("username").value;
             var password = document.getElementById("password").value;
 
-            var user = localStorage.getItem(username);
+            //Retrieve the JSON string from localStorage
+            const user = localStorage.getItem('username');
 
             if (user) {
-                var parsedUser = JSON.parse(user);
+                const parsedUser = JSON.parse(user);
                 if (parsedUser.password === password) {
                     // Convert the object to a JSON string before storing
                     localStorage.setItem('user', JSON.stringify(parsedUser));
