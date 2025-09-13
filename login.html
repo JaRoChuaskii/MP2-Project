@@ -42,10 +42,10 @@
             let login_records = new Array();
             login_records = JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
             if (login_records.some((v) => {
-                return v.email==email && v.pass==passwords
+                return v.username==username && v.pass==passwords
                 })) {
                 current_user=login_records.filter((v) => {
-                return v.email==email && v.pass==passwords 
+                return v.username==username && v.pass==passwords 
                 })[0]
             }else {
                 alert("you are not logged in!");
