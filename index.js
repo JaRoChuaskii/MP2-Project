@@ -158,6 +158,34 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	});
 
+	locate.onkeyup = function() {
+
+		const address = document.getElementById('addressInput').value;
+		const geocoder = new google.maps.Geocoder();
+
+		geocoder.geocode({'address': address}, function(results, status) {
+			if (status === 'OK') {
+				map.setCenter(results[0].geometry.location);
+
+				const marker = new google.maps.Marker({
+				map: map,
+				position: results[0].geometry.location,
+				zoom: 15
+				});
+
+				// You can customize the info window content here
+				const infowindow = new google.maps.InfoWindow({
+				content: '<strong>' + results[0].formatted_address + '</strong>'
+				});
+
+				marker.addListener('click', function() {
+				infowindow.open(map, marker);
+				});
+			} else {
+			}
+		});
+	}
+
 	function onSuccess(position) {
 	let {latitude, longitude} = position.coords;
 	//https://maps.googleapis.com/maps/api/staticmap?center="+latlon+"&zoom=14&size=400x300&sensor=false&key=YOUR_KEY
@@ -232,34 +260,6 @@ function initMap() {
 	map = new google.maps.Map(document.getElementById('map'), {
 	center: {lat: 7.088079785342349, lng: 125.61169773054502},
 	zoom: 15
-	});
-}
-
-locate.onkeyup = function() {
-
-	const address = document.getElementById('addressInput').value;
-	const geocoder = new google.maps.Geocoder();
-
-	geocoder.geocode({'address': address}, function(results, status) {
-		if (status === 'OK') {
-			map.setCenter(results[0].geometry.location);
-
-			const marker = new google.maps.Marker({
-			map: map,
-			position: results[0].geometry.location,
-			zoom: 15
-			});
-
-			// You can customize the info window content here
-			const infowindow = new google.maps.InfoWindow({
-			content: '<strong>' + results[0].formatted_address + '</strong>'
-			});
-
-			marker.addListener('click', function() {
-			infowindow.open(map, marker);
-			});
-		} else {
-		}
 	});
 }
 
