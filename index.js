@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	function onSuccess(position) {
 	let {latitude, longitude} = position.coords;
 	//https://maps.googleapis.com/maps/api/staticmap?center="+latlon+"&zoom=14&size=400x300&sensor=false&key=YOUR_KEY
-		fetch('https://maps.googleapis.com/maps/api/geocode/json?latlng='+latitude+','+longitude+'&key=AIzaSyCF-np2mc0J1ur6NCQTQ7_YMNlSyD7VZLU')
+		fetch('https://maps.googleapis.com/maps/api/geocode/json?latlng='+latitude+','+longitude+'&key=AIzaSyCF-AIzaSyASWziGxWyi3TMPodmLFAkW9QpdZNhWcak')
 		.then(response => response.json()).then(result => {
 		formattedAddress = result.results[0].formatted_address;
 		loginName=current_user.fname;
