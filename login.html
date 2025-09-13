@@ -39,20 +39,18 @@
             var password = document.getElementById("password").value;
 
             //Retrieve the JSON string from localStorage
-            const user = localStorage.getItem('username');
-
-            if (user) {
-                const parsedUser = JSON.parse(user);
-                if (parsedUser.password === password && parsedUser.username === username) {
-                    // Convert the object to a JSON string before storing
-                    localStorage.setItem('user', JSON.stringify(parsedUser));
-                    window.location.href = "index.html"
-                } else {
-                    alert("Password you enter is incorrect!");
-                }
-            } else {
-                alert("User not found!");
+            let login_records = new Array();
+            login_records = JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
+            if (login_records.some((v) => {
+                return v.email==email && v.pass==passwords
+                })) {
+                current_user=login_records.filter((v) => {
+                return v.email==email && v.pass==passwords 
+                })[0]
+            }else {
+                alert("you are not logged in!");
             }
+            
         });
     </script>
 </body>
