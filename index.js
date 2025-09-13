@@ -276,10 +276,10 @@ const coffee = [
 		{ id: 10, image: 'img/pexels-anna-tarazevich-4927150.jpg', title: 'Item 10', description: 'Description for Item 10', price: 200 },
 		// Add more items as needed
     ];
-    const categories1 = [...new Set(coffee.map((item)=>
+    const categories = [...new Set(coffee.map((item)=>
         {return item}))]
 	let v=0;
-    document.getElementById('coffee').innerHTML = categories1.map((item)=>
+    document.getElementById('coffee').innerHTML = categories.map((item)=>
     {
         var {image, title, description, price} = item;
         return(
