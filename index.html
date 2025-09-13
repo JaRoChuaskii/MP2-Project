@@ -23,7 +23,7 @@
             const user = localStorage.getItem("LoggedIn");
             if(user) {
                 const parsedUser = JSON.parse(user);
-                document.getElementById("welcomeMessage").innerHTML = `Hello ${parsedUser.name}`;
+                document.getElementById("welcomeMessage").innerHTML = "Hello " + parsedUser.name;
                 document.getElementById("logoutBtn").classList.remove("hidden");
             }else{
                 document.getElementById("welcomeMessage").innerHTML = `Hello please <a href = 'login.html'>login</a>`;
