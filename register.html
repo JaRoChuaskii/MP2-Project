@@ -30,17 +30,21 @@
             user_records = JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
 
             if (user_records.some((v) => {
-                return v.username==username || v.password==password
+                return v.username==username
             })) {
                 alert("Username already exist!");
-            }else {
-            user_records.push({
-                "name":name,
-                "username":username,
-                "password":password
-            })
-            localStorage.setItem("users", JSON.stringify(user_records));
-            window.location.reload();
+            } else if (user_records.some((v) => {
+                return v.password==password
+            })) {
+                alert("Username already exist!");
+            } else {
+                user_records.push({
+                    "name":name,
+                    "username":username,
+                    "password":password
+                })
+                localStorage.setItem("users", JSON.stringify(user_records));
+                window.location.reload();
             }
 
         });
