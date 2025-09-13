@@ -47,6 +47,7 @@
                 current_user=login_records.filter((v) => {
                 return v.username==username && v.pass==passwords 
                 })[0]
+                window.location.href = "login.html";
             }else {
                 alert("you are not logged in!");
             }

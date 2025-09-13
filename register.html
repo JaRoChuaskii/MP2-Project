@@ -44,7 +44,8 @@
                     "password":password
                 })
                 localStorage.setItem("users", JSON.stringify(user_records));
-                window.location.reload();
+                alert("Registered successfully! Redirected to login page.");
+                window.location.href = "login.html";
             }
 
         });
