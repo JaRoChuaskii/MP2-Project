@@ -27,7 +27,7 @@
 
             let user_records = new Array();
 
-            user_records = JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
+            user_records = JSON.parse(localStorage.getItem("user"))?JSON.parse(localStorage.getItem("user")):[]
 
             if (user_records.some((v) => {
                 return v.username==username
@@ -43,7 +43,7 @@
                     "username":username,
                     "password":password
                 })
-                localStorage.setItem("users", JSON.stringify(user_records));
+                localStorage.setItem("user", JSON.stringify(user_records));
                 alert("Registered successfully! Redirected to login page.");
                 window.location.href = "login.html";
             }
