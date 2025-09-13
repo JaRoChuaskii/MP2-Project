@@ -25,25 +25,22 @@
             var password = document.getElementById("password").value;
             var confirmPassword = document.getElementById("confirmPassword").value;
 
-            if (password !== confirmPassword) {
-                alert("Passwords does not match!");
-                return;
-            }
+            let user_records = new Array();
 
-            const user = {
-                name: name,
-                username: username,
-                password: password,
+            user_records = JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
 
-            };
-
-            // Convert the object to a JSON string before storing
-            localStorage.setItem('username', JSON.stringify(user));
-            alert("Registration is successful! Redirecting to login page.");
-            window.location.href = "login.html";
-
-            function checkCredentials() {
-                console.log("Hello this is a function!");
+            if (user_records.some((v) => {
+                return v.username==username || v.password==password
+            })) {
+                alert("Username already exist!");
+            }else {
+            user_records.push({
+                "name":name,
+                "username":username,
+                "password":password
+            })
+            localStorage.setItem("users", JSON.stringify(user_records));
+            window.location.reload();
             }
 
         });
