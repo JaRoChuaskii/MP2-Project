@@ -21,9 +21,9 @@
         
         <script>
             // Check if the user is already logged in
-            let storedUsername = new Array();
-            if(storedUsername) {
-                var parsedUser = JSON.parse(localStorage.getItem("storedUsername"))?JSON.parse(localStorage.getItem("storedUsername")):[]
+            let parsedUser = new Array();
+            parsedUser = JSON.parse(localStorage.getItem("loggedIn"))?JSON.parse(localStorage.getItem("loggedIn")):[]
+            if(parsedUser.name) {
                 document.getElementById("welcomeMessage").innerHTML = `Hello ${parsedUser.name}`;
                 document.getElementById("logoutBtn").classList.remove("hidden");
             }else{
@@ -31,7 +31,7 @@
             }
 
             document.getElementById("logoutBtn").addEventListener("click", function() {
-                localStorage.removeItem("storedUsername");
+                localStorage.removeItem("loggedIn");
                 window.location.href = "login.html";
             });
         </script>
