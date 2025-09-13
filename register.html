@@ -30,6 +30,13 @@
                 return;
             }
 
+            const user = {
+                name:name,
+                username:username,
+                password:password,
+
+            };
+
             localStorage.setItem(username, jSON.stringify(user));
             alert("Registration is successful! Redirecting to login page.");
             window.location.href = "login.html";
