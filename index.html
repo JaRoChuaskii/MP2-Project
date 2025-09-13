@@ -23,8 +23,9 @@
             // Check if the user is already logged in
             let parsedUser = new Array();
             parsedUser = JSON.parse(localStorage.getItem("user"))?JSON.parse(localStorage.getItem("user")):[]
-            if(parsedUser.name) {
-                document.getElementById("welcomeMessage").innerHTML = `Hello ${parsedUser.name}`;
+            if(parsedUser.username) {
+                console.log(parsedUser.username);
+                document.getElementById("welcomeMessage").innerHTML = "Hello " + parsedUser.username;
                 document.getElementById("logoutBtn").classList.remove("hidden");
             }else{
                 document.getElementById("welcomeMessage").innerHTML = `Hello please <a href = 'login.html'>login</a>`;
