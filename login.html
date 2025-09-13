@@ -43,7 +43,8 @@
             if (user) {
                 var parsedUser = JSON.parse(user);
                 if (parsedUser.password === password) {
-                    localStorage.setItem("user", JSON.stringify(parsedUser));
+                    // Convert the object to a JSON string before storing
+                    localStorage.setItem('user', JSON.stringify(parsedUser));
                     window.location.href = "index.html"
                 } else {
                     alert("Password you enter is incorrect!");

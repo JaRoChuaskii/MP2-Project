@@ -37,7 +37,8 @@
 
             };
 
-            localStorage.setItem("username", jSON.stringify(user));
+            // Convert the object to a JSON string before storing
+            localStorage.setItem('userData', JSON.stringify(myObject));
             alert("Registration is successful! Redirecting to login page.");
             window.location.href = "login.html";
 
