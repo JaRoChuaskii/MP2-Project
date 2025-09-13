@@ -20,9 +20,10 @@
         <button id="logoutBtn" class="hidden">Logout</button>
         
         <script>
-            var user = localStorage.getItem("user");
-            if(user) {
-                var parsedUser = JSON.parse(user);
+            // Check if the user is already logged in
+            let storedUsername = new Array();
+            if(storedUsername) {
+                var parsedUser = JSON.parse(localStorage.getItem("storedUsername"))?JSON.parse(localStorage.getItem("storedUsername")):[]
                 document.getElementById("welcomeMessage").innerHTML = `Hello ${parsedUser.name}`;
                 document.getElementById("logoutBtn").classList.remove("hidden");
             }else{
@@ -30,7 +31,7 @@
             }
 
             document.getElementById("logoutBtn").addEventListener("click", function() {
-                localStorage.removeItem("user");
+                localStorage.removeItem("storedUsername");
                 window.location.href = "login.html";
             });
         </script>
