@@ -20,19 +20,17 @@
         <button id="logoutBtn" class="hidden">Logout</button>
         
         <script>
-            // Check if the user is already logged in
-            let parsedUser = new Array();
-            parsedUser = JSON.parse(localStorage.getItem("user"))?JSON.parse(localStorage.getItem("user")):[]
-            if(parsedUser) {
-                console.log(parsedUser);
-                document.getElementById("welcomeMessage").innerHTML = "Hello " + parsedUser;
+            var user = localStorage.getItem("LoggedIn");
+            if(user) {
+                var parsedUser = JSON.parse(user);
+                document.getElementById("welcomeMessage").innerHTML = `Hello ${parsedUser.username}`;
                 document.getElementById("logoutBtn").classList.remove("hidden");
             }else{
                 document.getElementById("welcomeMessage").innerHTML = `Hello please <a href = 'login.html'>login</a>`;
             }
 
             document.getElementById("logoutBtn").addEventListener("click", function() {
-                localStorage.removeItem("user");
+                localStorage.removeItem("LoggedIn");
                 window.location.href = "login.html";
             });
         </script>
