@@ -42,10 +42,10 @@
             let login_records = new Array();
             login_records = JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
             if (login_records.some((v) => {
-                return v.username==username && v.pass==passwords
+                return v.username==username && v.password==password
                 })) {
                 current_user=login_records.filter((v) => {
-                return v.username==username && v.pass==passwords 
+                return v.username==username && v.password==password
                 })[0]
                 window.location.href = "login.html";
             }else {
