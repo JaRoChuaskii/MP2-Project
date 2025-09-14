@@ -21,11 +21,7 @@
 
         <script>
             //Retrieve the JSON string from localStorage
-            const myObject = {name:'Chris Benoit', Age:'90'};
-            console.log(myObject);
-            sessionStorage.setItem("userData", JSON.stringify(myObject));
-
-            const retreiveString = sessionStorage.getItem("userData");
+            const retreiveString = sessionStorage.getItem("login");
             const retreiveObject = JSON.parse(retreiveString);
 
             console.log(retreiveObject.name);
