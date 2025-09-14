@@ -20,10 +20,9 @@
         <button id="logoutBtn" class="hidden">Logout</button>
         
         <script>
-            const LoggedIn = sessionStorage.getItem("LoggedIn");
-            const parsedUser = JSON.parse(LoggedIn);
+            const parsedUser = JSON.parse(sessionStorage.getItem("loggedIn"));
 
-            console.log(parsedUser.name);
+            console.log(parsedUser);
             if(parsedUser) {
                 document.getElementById("welcomeMessage").innerHTML = "Hello " + parsedUser.name;
                 document.getElementById("logoutBtn").classList.remove("hidden");
