@@ -25,6 +25,7 @@
             if(user) {
                 console.log(user.name);
                 var parsedUser = JSON.parse(user);
+                console.log(parsedUser);
                 document.getElementById("welcomeMessage").innerHTML = `Hello ${parsedUser.name}`;
                 document.getElementById("logoutBtn").classList.remove("hidden");
             }else{
