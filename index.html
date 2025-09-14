@@ -21,10 +21,14 @@
 
         <script>
             //Retrieve the JSON string from localStorage
-            const loginUser = sessionStorage.getItem("login");
-            console.log(loginUser);
-            const parsedUser = JSON.parse(loginUser);
-            console.log(parsedUser);
+            const myObject = {name:'Chris Benoit', Age:'90'};
+            console.log(myObject);
+            sessionStorage.setItem("userData", JSON.stringify(myObject));
+
+            const retreiveString = sessionStorage.getItem("userData");
+            const retreiveObject = JSON.parse(retreiveString);
+
+            console.log(retreiveObject.name);
         </script>
     </body>
 </html>
