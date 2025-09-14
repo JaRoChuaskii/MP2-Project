@@ -20,13 +20,12 @@
         <button id="logoutBtn" class="hidden">Logout</button>
         
         <script>
-            let parsedUser = new Array();
+            var user = sessionStorage.getItem("LoggedIn");
 
-            parsedUser = JSON.parse(sessionStorage.getItem("LoggedIn"));
-            
-            if(parsedUser) {
-                console.log(parsedUser.name);
-                document.getElementById("welcomeMessage").innerHTML = "Hello ", parsedUser.name;
+            if(user) {
+                console.log(user);
+                var parsedUser = JSON.parse(user);
+                document.getElementById("welcomeMessage").innerHTML = `Hello ${parsedUser.name}`;
                 document.getElementById("logoutBtn").classList.remove("hidden");
             }else{
                 document.getElementById("welcomeMessage").innerHTML = `Hello please <a href = 'login.html'>login</a>`;
