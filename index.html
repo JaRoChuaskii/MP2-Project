@@ -21,9 +21,7 @@
 
         <script>
             //Retrieve the JSON string from localStorage
-            let login_records = new Array();
-
-            login_records = JSON.parse(sessionStorage.getItem("login"))?JSON.parse(localStorage.getItem("login")):[]
+            const login_records = JSON.parse(sessionStorage.getItem("login"))?JSON.parse(localStorage.getItem("login")):[]
 
             if (login_records){
                 console.log(login_records);
