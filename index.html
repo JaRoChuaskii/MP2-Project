@@ -23,7 +23,7 @@
             const LoggedIn = sessionStorage.getItem("LoggedIn");
             const parsedUser = JSON.parse(LoggedIn);
 
-            console.log(parsedUser);
+            console.log(parsedUser.name);
             if(parsedUser) {
                 document.getElementById("welcomeMessage").innerHTML = "Hello " + parsedUser.name;
                 document.getElementById("logoutBtn").classList.remove("hidden");
@@ -32,7 +32,7 @@
             }
 
             document.getElementById("logoutBtn").addEventListener("click", function() {
-                localStorage.removeItem("LoggedIn");
+                sessionStorage.clear();
                 window.location.href = "login.html";
             });
         </script>
