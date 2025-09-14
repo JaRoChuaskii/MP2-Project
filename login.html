@@ -35,12 +35,15 @@
     <script>
         document.getElementById("loginForm").addEventListener("submit", function(event){
             event.preventDefault();
-            var username = document.getElementById("username").value;
-            var password = document.getElementById("password").value;
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
 
             //Retrieve the JSON string from localStorage
             let login_records = new Array();
+
             login_records = JSON.parse(localStorage.getItem("user"))?JSON.parse(localStorage.getItem("user")):[]
+            
             if (login_records.some((v) => {
                 return v.username==username && v.password==password
                 })) {
