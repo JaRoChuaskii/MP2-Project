@@ -18,8 +18,10 @@
 
         <h1 id="welcomeMessage">Hello</h1>
         <button id="logoutBtn" class="hidden">Logout</button>
-        
+
         <script>
+            var user = sessionStorage.getItem("login");
+            console.log(user);
         </script>
     </body>
 </html>
