@@ -43,7 +43,7 @@
                     "username":username,
                     "password":password
                 })
-                localStorage.setItem("user", user_records);
+                localStorage.setItem("user", JSON.stringify(user_records));
                 alert("Registered successfully! Redirected to login page.");
                 window.location.href = "login.html";
             }
