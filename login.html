@@ -43,14 +43,14 @@
             let login_records = new Array();
 
             login_records = JSON.parse(localStorage.getItem("user"))?JSON.parse(localStorage.getItem("user")):[]
-            
+
             if (login_records.some((v) => {
                 return v.username==username && v.password==password
                 })) {
                 /**current_user=login_records.filter((v) => {
                 return v.username==username && v.password==password
                 })[0]***/
-                sessionStorage.setItem("login", JSON.stringify(login_records));
+                sessionStorage.setItem("login", login_records);
                 window.location.href = "index.html";
             }else {
                 alert("you are not logged in!");
