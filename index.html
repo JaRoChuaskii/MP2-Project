@@ -23,7 +23,7 @@
             var user = sessionStorage.getItem("login");
 
             if(user) {
-                console.log(user.name);
+                console.log(user);
                 var parsedUser = JSON.parse(user);
                 console.log(parsedUser);
                 document.getElementById("welcomeMessage").innerHTML = `Hello ${parsedUser.name}`;
