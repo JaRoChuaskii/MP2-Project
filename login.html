@@ -44,9 +44,9 @@
             if (login_records.some((v) => {
                 return v.username==username && v.password==password
                 })) {
-                current_user=login_records.filter((v) => {
+                /**current_user=login_records.filter((v) => {
                 return v.username==username && v.password==password
-                })[0]
+                })[0]***/
                 sessionStorage.setItem("login", JSON.stringify(login_records));
                 window.location.href = "index.html";
             }else {
