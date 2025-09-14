@@ -25,11 +25,15 @@
 
             if (login_records){
                 console.log(login_records);
-                var v = JSON.parse(login_records.toString());
-                console.log(v);
-                console.log(typeof v);
-            }else{
+                var parsedUser = JSON.parse(login_records);
+                console.log(parsedUser);
+                console.log(typeof parsedUser);
 
+                document.getElementById("welcomeMessage").innerHTML = `Hello ${parsedUser.name}`;
+                document.getElementById("logoutBtn").classList.remove("hidden");
+
+            }else{
+                document.getElementById("welcomeMessage").innerHTML = `Hello please <a href = 'login.html'>login</a>`;
             }
         </script>
     </body>
