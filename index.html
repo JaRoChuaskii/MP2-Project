@@ -22,9 +22,9 @@
         <script>
             const parsedUser = JSON.parse(sessionStorage.getItem("LoggedIn"));
 
-            console.log(parsedUser);
+            console.log(parsedUser.name);
             if(parsedUser) {
-                document.getElementById("welcomeMessage").innerHTML = "Hello " + parsedUser.name;
+                document.getElementById("welcomeMessage").innerHTML = "Hello ", parsedUser.name;
                 document.getElementById("logoutBtn").classList.remove("hidden");
             }else{
                 document.getElementById("welcomeMessage").innerHTML = `Hello please <a href = 'login.html'>login</a>`;
