@@ -24,7 +24,7 @@
             const parsedUser = JSON.parse(LoggedIn);
 
             console.log(parsedUser);
-            /****if(parsedUser) {
+            if(parsedUser) {
                 document.getElementById("welcomeMessage").innerHTML = "Hello " + parsedUser.name;
                 document.getElementById("logoutBtn").classList.remove("hidden");
             }else{
@@ -34,7 +34,7 @@
             document.getElementById("logoutBtn").addEventListener("click", function() {
                 localStorage.removeItem("LoggedIn");
                 window.location.href = "login.html";
-            });***/
+            });
         </script>
     </body>
 </html>
