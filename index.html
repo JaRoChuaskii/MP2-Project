@@ -21,14 +21,14 @@
 
         <script>
             //Retrieve the JSON string from localStorage
-            loginUser = sessionStorage.getItem("login");
+            const loginUser = sessionStorage.getItem("login");
             console.log(loginUser);
             if (loginUser){
                 console.log(loginUser);
                 let parsedUser = new Array();
                 parsedUser = JSON.parse(loginUser);
                 console.log(parsedUser);
-                document.getElementById("welcomeMessage").innerHTML = `Hello ${parsedUser}`;
+                document.getElementById("welcomeMessage").innerHTML = `Hello ${parsedUser.name}`;
                 document.getElementById("logoutBtn").classList.remove("hidden");
             }else{
                 console.log(loginUser);
