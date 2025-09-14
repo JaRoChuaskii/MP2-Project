@@ -21,10 +21,12 @@
 
         <script>
             //Retrieve the JSON string from localStorage
-            const login_records = JSON.parse(sessionStorage.getItem("login"));
+            const login_records = sessionStorage.getItem("login");
 
             if (login_records){
                 console.log(login_records);
+                var v = JSON.parse(login_records);
+                console.log(v);
             }else{
 
             }
