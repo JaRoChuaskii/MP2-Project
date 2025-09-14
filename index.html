@@ -20,7 +20,7 @@
         <button id="logoutBtn" class="hidden">Logout</button>
         
         <script>
-            const parsedUser = new Array();
+            let parsedUser = new Array();
 
             parsedUser = JSON.parse(sessionStorage.getItem("LoggedIn"))?JSON.parse(sessionStorage.getItem("LoggedIn")):[]
             if(parsedUser) {
