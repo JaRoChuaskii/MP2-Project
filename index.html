@@ -20,8 +20,17 @@
         <button id="logoutBtn" class="hidden">Logout</button>
 
         <script>
-            var user = sessionStorage.getItem("login");
-            console.log(JSON.parse(user));
+            //Retrieve the JSON string from localStorage
+            let loginUser = new Array();
+            loginUser = JSON.parse(sessionStorage.getItem("login"))?JSON.parse(localStorage.getItem("login")):[]
+
+            if (loginUser.some((v) => {
+                return v.username && v.password
+                })) {
+                    console.log(loginUser);
+                }else{
+
+                }
         </script>
     </body>
 </html>
