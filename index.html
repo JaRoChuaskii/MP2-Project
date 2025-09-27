@@ -15,7 +15,7 @@
         <title> Cuerto D' Cafe - One stop coffee shop serving 24hrs in Davao City, philippines </title>
 
         <!-- bootstrap core css -->
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
         <!--owl slider stylesheet -->
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
@@ -68,21 +68,10 @@
                         <div class="user_option">
                             <ul href="" class="user_link">
                                 <li>
-                                    <i id="welcomeMessage" class="fa fa-user" aria-hidden="true"></i>
+                                    <!--<i class="fa fa-user" aria-hidden="true"></i>-->
+                                    <button id="welcomeMessage" type="button" class="btn btn-outline-light me-2">Hello</button>
                                 </li>
                             </ul>
-                            <a class="cart_link" href="#">
-                                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                                </svg>
-                            </a>
-                            <form class="form-inline">
-                                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                                </button>
-                            </form>
-                            <a href="" class="order_online">
-                                Order Online
-                            </a>
                         </div>
                     </div>
                 </nav>
@@ -107,7 +96,7 @@
                 document.getElementById("logoutBtn").classList.remove("hidden");
 
             }else{
-                document.getElementById("welcomeMessage").innerHTML = `Hello please <a href = 'login.html'>login</a>`;
+                document.getElementById("welcomeMessage").innerHTML = `LOGIN <a href = 'login.html'>login</a>`;
             }
         </script>
     </body>
